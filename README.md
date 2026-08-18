@@ -87,6 +87,7 @@ source install/setup.bash
 ros2 launch jackal_nav localisation.launch.py map:=<path_to_map>
 ```
 Provide an **initial pose estimate** using RViz. Change the laser topic to /jackal1/sensors/lidar3d_0/scan using the dropdown menu if laser scans are not visible.
+![Initial_Pose](docs/initial_pose.gif)
 
 **Terminal 2:** Launch Nav2.
 ```bash

@@ -1,10 +1,32 @@
-## Clearpath Jackal Setup Guide
-This repository contains the launch files required to run nav2 onboard the Jackal!
+## Jackal Setup Guide 
+This repository contains the launch files required to run nav2 onboard the RoboHub Jackal. These launch and configuration files have only been tested with **ROS2 Humble**
 
 ## Repository Structure
 ```text
 Onboard-Jackal/
-├── maps/                   # Saved maps generated via SLAM
+├── maps/                   # To store maps
 └── real_jackal/
-    ├── config/             # Parameter files for navigation and localization
-    └── launch/             # Launch files for SLAM, Nav2, and sensors
+    ├── config/             # Config files for navigation and localization
+    └── launch/             # Launch files for SLAM & Nav2
+```
+## Initial Setup
+### Ethernet Setup
+- On your laptop, **Settings > Network > Wired**
+- Click the plus (**+**) icon at the top to create a new profile
+- Go to the **IPv4** tab and click **Manual** 
+- Fill in the fields as shown below:
+  - Addresses: 192.168.131.101
+  - Netmask: 255.255.255.0
+ - Click **Add** and choose that profile
+### Connecting to the Jackal
+- Turn the Jackal on
+- Connect an ethernet cable from the Jackal to your Laptop
+  - Ensure the profile is chosen in your wired settings
+- Open a terminal and test the connection
+```
+ping 192.168.131.1
+```
+- If successful, ssh into the Jackal
+```
+ssh administrator@192.168.131.1
+```

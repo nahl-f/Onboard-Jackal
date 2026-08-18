@@ -11,6 +11,7 @@ Onboard-Jackal/
 ```
 ## Initial Setup
 ### Ethernet Setup
+*This only needs to be done once*
 - On your laptop, **Settings > Network > Wired**
 - Click the plus (**+**) icon at the top to create a new profile
 - Go to the **IPv4** tab and click **Manual** 

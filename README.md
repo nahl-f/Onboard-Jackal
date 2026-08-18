@@ -47,7 +47,7 @@ cd Onboard-Jackal
 colcon build
 source install/setup.bash
 ```
-> **Note:** Ensure you have the Docker container set up on your laptop before proceeding. Please refer to the [Offboard Repository Instructions](https://github.com/nahl-f/Jackal-Person-Nav) for laptop environment setup.
+> **Note:** Ensure you have the Docker container set up on your laptop to access topics offboard. Please refer to the [Offboard Repository Instructions](https://github.com/nahl-f/Jackal-Person-Nav) for laptop environment setup.
 
 ---
 

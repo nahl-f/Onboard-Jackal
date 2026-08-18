@@ -67,6 +67,7 @@ cd /workspaces/ros_ws/scripts
 source ros_ethernet.env
 ros2 launch clearpath_viz view_navigation.launch.py namespace:=jackal1
 ```
+![Mapping](docs/mapping.gif)
 ### Step 3: Save the Map (Laptop)
 Once mapping is complete, open a **new terminal** on the laptop (inside the Docker container) and source the ethernet script to save the map. This will save a **map.pgm** and **map.yaml** in your current directory.
 ```bash

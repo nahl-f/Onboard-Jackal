@@ -31,14 +31,15 @@ ping 192.168.131.1
 ssh administrator@192.168.131.1
 ```
 ### Workspace Setup
-- **Onboard Computer (Jackal)**
+#### Onboard Computer (Jackal)
 ```
 git clone https://github.com/nahl-f/Onboard-Jackal
 cd ~/Onboard-Jackal
 colcon build
 source install/setup.bash
 ```
-- **Offboard Computer (Laptop)**  
+#### Offboard Computer (Laptop)
+
 Ensure you have the [Jackal Docker Container](https://github.com/nahl-f/Jackal-Person-Nav) setup on your laptop.
 In the docker container:
 ```
@@ -48,21 +49,50 @@ ros2 topic list
 ros2 node list
 ```
 ## Mapping
-- **Onboard Computer (Jackal)**
+### Onboard Computer (Jackal)
+
+Launch SLAM to begin generating the map:
 ```
 cd ~/Onboard-Jackal
 source install/setup.bash
 ros2 launch jackal_nav slam.launch.py
 ```
-- **Offboard Computer (Laptop)**
-**Terminal 1**
-```
+### Offboard Computer (Laptop)
+
+- **Terminal 1**
+  
+Open a terminal inside the laptop's docker container to view the mapping process:
+```text
 cd /workspaces/ros_ws/scripts
 source ros_ethernet.env
 ros2 launch clearpath_viz view_navigation.launch.py namespace:=jackal1
 ```
-**Terminal 2**
-```
+- **Terminal 2**  
+
+After mapping is complete, run the following command to save a **map.pgm** and **map.yaml** in your current directory.
+```text
+cd /workspaces/ros_ws/scripts
+source ros_ethernet.env
+cd /workspaces/ros_ws/src/project/config/maps
 ros2 run nav2_map_server map_saver_cli -f <map_name> --ros-args -r map:=/jackal1/map
 ```
+## Navigation
+### Onboard Computer (Jackal)
 
+- **Terminal 1**
+
+Start localisation against the map of the environment.
+```text
+cd /workspaces/ros_ws/scripts
+source ros_ethernet.env
+ros2 launch clearpath_viz localisation.launch.py map:=<path to map>
+```
+- **Terminal 2**
+
+While localisation is running, start the complete nav2 stack
+```text
+cd /workspaces/ros_ws/scripts
+source ros_ethernet.env
+cd /workspaces/ros_ws/src/project/config/maps
+ros2 run nav2_map_server map_saver_cli -f <map_name> --ros-args -r map:=/jackal1/map
+```

@@ -77,7 +77,7 @@ ros2 run nav2_map_server map_saver_cli -f <map_name> --ros-args -r map:=/jackal1
 
 ## Navigation
 
-### Step 1: Launch Navigation Stack (Onboard Jackal)
+### Step 1: Launch localisation (Onboard Jackal)
 Open **two SSH terminals** into the Jackal.
 
 **Terminal 1:** Launch localization with your saved map.
@@ -86,16 +86,6 @@ cd ~/Onboard-Jackal
 source install/setup.bash
 ros2 launch jackal_nav localisation.launch.py map:=<path_to_map>
 ```
-Provide an **initial pose estimate** using RViz. Change the laser topic to /jackal1/sensors/lidar3d_0/scan using the dropdown menu if laser scans are not visible.  
-
-![Initial_Pose](docs/initial_pose.gif)
-
-**Terminal 2:** Launch Nav2.
-```bash
-cd ~/Onboard-Jackal
-source install/setup.bash
-ros2 launch jackal_nav nav2.launch.py 
-```
 ### Step 2: Visualize Navigation (Laptop)
 Open a terminal **inside the laptop's Docker container**:
 ```bash
@@ -103,6 +93,19 @@ cd /workspaces/ros_ws/scripts
 source ros_ethernet.env
 ros2 launch clearpath_viz view_navigation.launch.py namespace:=jackal1
 ```
+
+Provide an **initial pose estimate** using RViz. Change the laser topic to /jackal1/sensors/lidar3d_0/scan using the dropdown menu if laser scans are not visible.  
+
+![Initial_Pose](docs/initial_pose.gif)
+
+### Step 3: Launch full Nav2 (Onboard Jackal)
+**Terminal 2:** Launch Nav2.
+```bash
+cd ~/Onboard-Jackal
+source install/setup.bash
+ros2 launch jackal_nav nav2.launch.py 
+```
+
 You can provide goals using **Nav2 Goal** in RViz.  
 
 ![Nav2 Goal](docs/nav2.gif)

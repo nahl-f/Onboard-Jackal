@@ -82,7 +82,7 @@ def launch_setup(context, *args, **kwargs):
     #     'localization.yaml'])
 
     # file_parameters = "/home/administrator/nahl_ws/real_jackal/config/new_nav2_params.yaml"   
-    file_parameters = "/home/administrator/nahl_ws/real_jackal/config/clearpath_nav2.yaml"
+    file_parameters = "/home/administrator/nahl_ws/real_jackal/config/clearpath.yaml"
 
     launch_localization = PathJoinSubstitution(
       [pkg_nav2_bringup, 'launch', 'localization_launch.py'])

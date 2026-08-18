@@ -48,4 +48,21 @@ ros2 topic list
 ros2 node list
 ```
 ## Mapping
+- **Onboard Computer (Jackal)**
+```
+cd ~/Onboard-Jackal
+source install/setup.bash
+ros2 launch jackal_nav slam.launch.py
+```
+- **Offboard Computer (Laptop)**
+**Terminal 1**
+```
+cd /workspaces/ros_ws/scripts
+source ros_ethernet.env
+ros2 launch clearpath_viz view_navigation.launch.py namespace:=jackal1
+```
+**Terminal 2**
+```
+ros2 run nav2_map_server map_saver_cli -f <map_name> --ros-args -r map:=/jackal1/map
+```
 

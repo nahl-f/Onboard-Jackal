@@ -30,3 +30,15 @@ ping 192.168.131.1
 ```
 ssh administrator@192.168.131.1
 ```
+### Workspace Setup
+- **Onboard Computer (Jackal)**
+```
+git clone https://github.com/nahl-f/Onboard-Jackal
+cd ~/Onboard-Jackal
+colcon build
+source install/setup.bash
+```
+- **Offboard Computer (Laptop)**
+Ensure you have the Jackal Docker container [link](https://github.com/nahl-f/Jackal-Person-Nav) setup on your laptop
+## Mapping
+

@@ -1,6 +1,6 @@
-# Onboard-Jackal Navigation and Mapping
+# Jackal Setup Guide
 
-This repository contains the onboard launch configurations and maps required to run SLAM and Nav2 on the Clearpath Jackal.
+This repository contains the launch files required to run Nav2 onboard a Clearpath Jackal. These launch and configuration files have only been tested with **ROS2 Humble**
 
 ## Repository Structure
 ```text

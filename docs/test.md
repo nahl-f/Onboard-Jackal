@@ -5,10 +5,10 @@ This repository contains the launch files required to run Nav2 onboard a Clearpa
 ## Repository Structure
 ```text
 Onboard-Jackal/
-├── maps/                   # Saved maps generated via SLAM
+├── maps/                   # Saved maps
 └── real_jackal/
-    ├── config/             # Parameter files for navigation and localization
-    └── launch/             # Launch files for SLAM, Nav2, and sensors
+    ├── config/             # Config files for navigation and localization
+    └── launch/             # Launch files for SLAM & Nav2
 ```
 
 ---

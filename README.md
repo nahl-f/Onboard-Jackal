@@ -87,12 +87,21 @@ cd /workspaces/ros_ws/scripts
 source ros_ethernet.env
 ros2 launch clearpath_viz localisation.launch.py map:=<path to map>
 ```
-- **Terminal 2**
+### Offboard Computer (Laptop)
+Provide an **initial pose estimate** using RViz. Change the laser topic to /jackal1/sensors/lidar3d_0/scan using the dropdown menu. 
 
-While localisation is running, start the complete nav2 stack
+```text
+cd /workspaces/ros_ws/scripts
+source ros_ethernet.env
+ros2 launch clearpath_viz view_navigation.launch.py namespace:=jackal1
+```
+### Onboard Computer (Jackal)
+- **Terminal 2**
+While localisation is running and the initial pose has been provided, start the complete nav2 stack.
 ```text
 cd /workspaces/ros_ws/scripts
 source ros_ethernet.env
 cd /workspaces/ros_ws/src/project/config/maps
 ros2 run nav2_map_server map_saver_cli -f <map_name> --ros-args -r map:=/jackal1/map
 ```
+You can provide goals using **Nav2 Goal** in RViz 

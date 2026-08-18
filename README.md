@@ -103,5 +103,6 @@ cd /workspaces/ros_ws/scripts
 source ros_ethernet.env
 ros2 launch clearpath_viz view_navigation.launch.py namespace:=jackal1
 ```
-You can provide goals using **Nav2 Goal** in RViz.
+You can provide goals using **Nav2 Goal** in RViz.  
+
 ![Nav2 Goal](docs/nav2.gif)

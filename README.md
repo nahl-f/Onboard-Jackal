@@ -38,7 +38,14 @@ cd ~/Onboard-Jackal
 colcon build
 source install/setup.bash
 ```
-- **Offboard Computer (Laptop)**
-Ensure you have the Jackal Docker container [link](https://github.com/nahl-f/Jackal-Person-Nav) setup on your laptop
+- **Offboard Computer (Laptop)**  
+Ensure you have the [Jackal Docker Container](https://github.com/nahl-f/Jackal-Person-Nav) setup on your laptop.
+In the docker container:
+```
+cd /workspaces/ros_ws/scripts
+source ros_ethernet.env
+ros2 topic list
+ros2 node list
+```
 ## Mapping
 
